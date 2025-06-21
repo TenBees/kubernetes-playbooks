@@ -1,0 +1,11 @@
+---
+- name: Bootstrap Python on Ubuntu
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Install Python3 and required libraries
+      raw: |
+        apt update && apt install -y python3 python3-apt
+      changed_when: false
+
