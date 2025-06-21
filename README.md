@@ -27,6 +27,7 @@ Clone repo
 cd into repo
 
 2. edit inventory.ini ( I am using yaml inventory formatting because I personally prefer it)
+```yaml
 all:
   hosts:
     Master-node:
@@ -35,11 +36,13 @@ all:
       ansible_host: 192.168.1.4
     worker2:
       ansible_host: 192.168.1.5
+```
+4. Run Python install playbook ( optional. on a fresh VM I had to install it so I decided to add it just in case)
 
-3. Run Python install playbook ( optional. on a fresh VM I had to install it so I decided to add it just in case)
 ansible-playbook -i inventory.ini install-py.yml -u USER --become --ask-become-pass
 
-4. Run Kubernetes install playbook
+6. Run Kubernetes install playbook
+
 ansible-playbook -i inventory.ini install-kube.yml -u USER --become --ask-become-pass
 
 ## Post install
